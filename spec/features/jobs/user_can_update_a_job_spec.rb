@@ -2,8 +2,9 @@ require 'rails_helper'
 
 describe "User visits the edit job page" do
   before :each do
+    @category = Category.create(title: "Lame")
     @company = Company.create(name: 'Joels Banana Farm')
-    @job = Job.create(title: 'Banana Picker', description: "You pick bananas", city: 'Banana Town', level_of_interest: '10', company: @company)
+    @job = Job.create(title: 'Banana Picker', description: "You pick bananas", city: 'Banana Town', level_of_interest: '10', company: @company, category: @category)
   end
   it 'they can edit a job' do
     visit edit_company_job_path(@company, @job)

@@ -7,4 +7,15 @@
 <% end %>
 <br><br>
 <%= link_to "New Job", new_company_job_path(@company) %>
+<br><br>
+<%= render partial: 'contacts/form' %>
+
+<% @company.contacts.each do |contact| %>
+<ul>
+  Name: <%= contact.full_name %><br>
+  Position: <%= contact.position %><br>
+  Email: <%= contact.email %>
+</ul>
+<% end %>
+
 <%= yield %>

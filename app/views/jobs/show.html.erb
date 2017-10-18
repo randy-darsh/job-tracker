@@ -16,7 +16,7 @@ Category: <%= @job.category.title %>
 <br>
 Comments: 
 <br><br>
-<% @job.comments.each do |comment| %>
+<% @job.comments.reverse_each do |comment| %>
 - <%= comment.content %>
 <br><br>
 <% end %>

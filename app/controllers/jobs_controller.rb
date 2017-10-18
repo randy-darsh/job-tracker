@@ -1,15 +1,30 @@
 class JobsController < ApplicationController
+
   def index
     @company = Company.find(params[:company_id])
     @jobs = @company.jobs
   end
 
   def new
+    @categories = Category.all
     @company = Company.find(params[:company_id])
     @job = Job.new()
   end
 
+  def show
+    @job = Job.find(params[:id])
+    @comments = Comment.all
+    @comment = Comment.new
+  end
+
+  def edit
+    @company = Company.find(params[:company_id])
+    @job = Job.find(params[:id])
+    @categories = Category.all
+  end
+
   def create
+    @categories = Category.all
     @company = Company.find(params[:company_id])
     @job = @company.jobs.new(job_params)
     if @job.save
@@ -20,16 +35,9 @@ class JobsController < ApplicationController
     end
   end
 
-  def show
-    @job = Job.find(params[:id])
-  end
-
-  def edit
-    @company = Company.find(params[:company_id])
-    @job = Job.find(params[:id])
-  end
-
   def update
+    @categories = Category.all
+    @company = Company.find(params[:company_id])
     @job = Job.find(params[:id])
     @job.update(job_params)
     if @job.save

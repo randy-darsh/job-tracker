@@ -23,10 +23,6 @@ Comments:
 <br><br>
 <% end %>
 
-<%= form_for @comment do |f| %>
-  <%= f.label :content, "New Comment:" %>
-  <%= f.text_area :content %>
-
-  <%= f.submit %>
-<% end %>
+<h3>Post a Comment</h3>
+<%= render partial: 'comments/form' %>
 

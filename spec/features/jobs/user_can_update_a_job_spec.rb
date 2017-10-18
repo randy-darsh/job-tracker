@@ -18,7 +18,7 @@ describe "User visits the edit job page" do
 
     visit company_job_path(@company, @job)
 
-    expect(page).to have_content("Title: Banana Inspector")
+    expect(page).to have_content("Banana Inspector")
     expect(page).to have_content("Description: You inspect bananas")
     expect(page).to have_content("Level of Interest: 11")
     expect(page).to have_content("City: Banana Land")

@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 
   resources :companies do
+    resources :contacts
     resources :jobs do
-      resources :comments
+      resources :comments, only: [:create]
     end
   end
 

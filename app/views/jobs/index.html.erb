@@ -1,7 +1,10 @@
-All Jobs for <strong><%= @company.name %></strong>
+<h2>All Jobs for <strong><%= @company.name %></strong></h2>
 
 <% @jobs.each do |job| %>
-  <ul><%= job.title %> at <%= job.company.name %>
+  <ul><%= link_to job.title, company_job_path(job.company, job) %> at <%= job.company.name %>
   <%= link_to "Edit Job", edit_company_job_path(job.company, job) %>
   <%= link_to "Delete Job", company_job_path(job.company, job), method: :delete %></ul>
 <% end %>
+<br><br>
+<%= link_to "New Job", new_company_job_path(@company) %>
+<%= yield %>

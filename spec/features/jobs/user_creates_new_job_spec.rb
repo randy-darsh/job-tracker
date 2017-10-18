@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "User creates a new job" do
-  xscenario "a user can create a new job" do
+  scenario "a user can create a new job" do
     category = Category.create(title: "Lame")
     company = Company.create!(name: "ESPN")
     visit new_company_job_path(company)
@@ -14,7 +14,7 @@ describe "User creates a new job" do
 
     click_button "Create Job"
 
-    expect(current_path).to eq(company_jobs_path(company))
+    expect(current_path).to eq(company_job_path(company, Job.last))
 
     expect(page).to have_content("ESPN")
     expect(page).to have_content("Developer")

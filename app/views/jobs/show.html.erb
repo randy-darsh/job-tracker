@@ -1,6 +1,4 @@
-Title: <%= @job.title %>
-<br>
-<br>
+<h2><%= @job.title %></h2>
 Description: <%= @job.description %>
 <br>
 <br>
@@ -26,3 +24,4 @@ Comments:
 <h3>Post a Comment</h3>
 <%= render partial: 'comments/form' %>
 
+<%= yield %>

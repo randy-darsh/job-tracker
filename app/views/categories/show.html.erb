@@ -1,4 +1,4 @@
-<h2>This is <%= @category.title %>'s show page</h2>
+<h2>These jobs are <%= @category.title %></h2>
 
 <ul>
 <% @category.jobs.each do |job| %>
@@ -6,3 +6,5 @@
 <br>
 <% end %>
 </ul>
+
+<%= yield %>

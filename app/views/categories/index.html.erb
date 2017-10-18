@@ -1,7 +1,10 @@
 <h2>Category Index</h2>
 
 <% @categories.each do |category| %>
-  <ul><%= category.title %>
+  <ul><%= link_to category.title, category_path(category) %>
   <%= link_to "Edit Category", edit_category_path(category) %>
   <%= link_to "Delete Category", category_path(category), method: :delete %></ul>
 <% end %>
+<br><br>
+<%= link_to "New Category", new_category_path(@catrgory) %>
+<%= yield %>

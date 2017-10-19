@@ -39,14 +39,13 @@ class JobsController < ApplicationController
   end
 
   def update
-    @categories = Category.all
     @company = Company.find(params[:company_id])
     @job = Job.find(params[:id])
-    @job.update(job_params)
-    if @job.save
+    if @job.update(job_params)
       flash[:success] = "#{@job.title} updated!"
-      redirect_to company_job_path(@job)
+      redirect_to company_job_path(@company, @job)
     else
+      @categories = Category.all
       render :edit
     end
   end
@@ -57,6 +56,24 @@ class JobsController < ApplicationController
 
     flash[:success] = "#{job.title} was successfully deleted!"
     redirect_to company_jobs_path
+  end
+
+  def sort
+    if params[:location]
+      @jobs = Job.where(city: params[:location])
+      @message = "All jobs in #{params[:location]}"
+    elsif params[:sort] == "interest"
+      @jobs = Job.order(:level_of_interest)
+      @message = "Jobs sorted by level of interest"
+    else
+      @jobs = Job.all
+      @message = "All Jobs"
+    end
+  end
+
+  def dashboard
+    @job_count_by_interest = Job.count_by_interest
+    @job_count_by_city  = Job.count_by_city
   end
 
   private

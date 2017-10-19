@@ -1,0 +1,19 @@
+<h1>Jobs Dashboard</h1>
+<h3> Job count by interest level </h3>
+<% @job_count_by_interest.each do |level_of_interest, jobs| %>
+<ul>
+  Level of Interest: <%= level_of_interest %>
+  Job Count: <%= jobs %>
+</ul>
+<% end %>
+
+<br><br>
+
+<h3> Job count by City </h3>
+<% @job_count_by_city.each do |city, jobs| %>
+<ul>
+  City: <%= link_to city, "/jobs?location=#{city}" %>
+  Job Count: <%= jobs %>
+</ul>
+<% end %>
+

@@ -8,8 +8,9 @@
 <br><br>
 <%= link_to "New Job", new_company_job_path(@company) %>
 <br><br>
+<h4>Create Contact:</h4>
 <%= render partial: 'contacts/form' %>
-
+<h4>Contacts for <%= @company.name %>:</h4>
 <% @company.contacts.each do |contact| %>
 <ul>
   Name: <%= contact.full_name %><br>

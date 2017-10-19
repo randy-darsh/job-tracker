@@ -1,0 +1,5 @@
+<h2><%= @message %></h2>
+
+<% @jobs.each do |job| %>
+  <ul><%= link_to job.title, company_job_path(job.company, job) %> - <%= job.level_of_interest %></ul>
+<% end %>

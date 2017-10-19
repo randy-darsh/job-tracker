@@ -7,7 +7,7 @@ describe "User visits a company show page" do
   end
 
   it "they see a form for adding contact information" do
-    expect(page).to have_content("Full Name")
+    expect(page).to have_content("Full name")
     expect(page).to have_content("Position")
     expect(page).to have_content("Email")
   end
@@ -18,5 +18,9 @@ describe "User visits a company show page" do
     fill_in "contact[email]", with: "email@email.com"
 
     click_on "Create Contact"
+
+    expect(page).to have_content("Some Lady")
+    expect(page).to have_content("Some Position")
+    expect(page).to have_content("email@email.com")
   end
 end

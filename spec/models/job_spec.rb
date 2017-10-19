@@ -46,4 +46,10 @@ describe Job do
       expect(job).to respond_to(:category)
     end
   end
+
+  # describe "Class Methods" do
+  #   it ".count_by_city" do
+      
+  #   end
+  # end
 end
